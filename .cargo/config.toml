@@ -1,0 +1,6 @@
+# Link the C runtime statically so the exe runs on any Windows machine with no extra DLLs.
+[target.'cfg(all(windows, target_env = "msvc"))']
+rustflags = ["-C", "target-feature=+crt-static"]
+
+[target.'cfg(all(windows, target_env = "gnu"))']
+rustflags = ["-C", "target-feature=+crt-static"]
